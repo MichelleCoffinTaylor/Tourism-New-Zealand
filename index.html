@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<title>Tourism New Zealand</title>
+	<!-- Browser Tab Icon -->
+	<link rel="icon" href="imgs/logo.png">
+	<!-- Style Sheet -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<!-- Google Fonts PT Sans -->
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+</head>
+<body>
+	<header>
+		<div class="logo">
+			<img src="imgs/logo.png">
+		</div>
+	</header>
+	<div id="main">
+		<div id="map-container">
+			<div id="map"></div>
+		</div>
+		<div id="form">
+			<form id="FormValidation" method="post"	action="payment.html">
+				<!-- Starting Point -->
+				<div class="FormGroup">
+					<label for="StartingPoint" class="font-family">Starting Point</label>
+					<input id="start" class="form-control italic float-right" type="text" name="StartingPoint" placeholder="please enter a valid address" style="font-family:'PT Sans', sans-serif;">
+					<span class="input-errors"></span>
+				</div>
+				<!-- End Point -->
+				<div class="FormGroup">
+					<label for="EndPoint" class="font-family">End Point</label>
+					<input id="end" class="form-control italic float-right" type="text" name="EndPoint" placeholder="please enter a valid address" style="font-family:'PT Sans', sans-serif;">
+					<span class="input-errors"></span>
+				</div>
+				<!-- Number of people Traveling -->
+				<div class="controls">
+					<div class="FormGroup">
+						<label for="NumberOfPeople" id="NumberOfPeople" class="font-family">Number of people traveling</label>
+						<select id="PeopleTraveling" class="control" name="number">
+							<option value=".OnePerson" id="1">1</option>
+							<option value=".TwoPeople" id="2">2</option>
+							<option value=".ThreePeople" id="3">3</option>
+							<option value=".FourPeople" id="4">4</option>
+							<option value=".FivePeople" id="5">5</option>
+							<option value=".SixPeople" id="6">6</option>
+						</select>
+						<span class="input-errors"></span>
+					</div>
+					<!-- Number of days Traveling -->
+					<div class="FormGroup">
+						<label for="NumberOfDays" id="NumberOfDays" class="font-family">Number of days traveling</label>
+						<select id="DaysTraveling" class="control" name="number">
+							<option value=".OneDay" id="OneDay">1</option>
+							<option value=".TwoDays" id="TwoDays">2</option>
+							<option value=".ThreeDays" id="ThreeDays">3</option>
+							<option value=".FourDays" id="FourDays">4</option>
+							<option value=".FiveDays" id="FiveDays">5</option>
+							<option value=".SixDays" id="SixDays">6</option>
+							<option value=".SevenDays" id="SevenDays">7</option>
+							<option value=".EightDays" id="EightDays">8</option>
+							<option value=".Ninedays" id="NineDays">9</option>
+							<option value=".TenDays" id="TenDays">10</option>
+							<option value=".ElevenDays" id="ElevenDays">11</option>
+							<option value=".TwelveDays" id="TwelveDays">12</option>
+							<option value=".ThirteenDays" id="ThirteenDays">13</option>
+							<option value=".FourteenDays" id="FourteenDays">14</option>
+							<option value=".FifteenDays" id="FifteenDays">15</option>
+						</select>
+						<span class="input-errors"></span>
+					</div>
+				</div>
+				<!-- Transport Options Avaliable -->
+				<div id="TransportOptions" class="FormGroup">
+					<label for="TransportOptionsAvaliable" class="font-family">Transport Options Avaliable</label><br>
+					<!-- Motor Bike -->
+					<div class="mix OnePerson OneDay TwoDays Threedays FourDays FiveDays">
+						<input id="MotorBike" class="form-control check-box" type="checkbox" name="TransportOptionsAvaliable" value="Motorbike">Motorbike<br>
+					</div>
+					<!-- Small Car -->
+					<div class="mix OnePerson TwoPeople OneDay TwoDays ThreeDays FourDays FiveDays SixDays SevenDays EightDays NineDays TenDays">
+						<input id="SmallCar" class="form-control check-box" type="checkbox" name="TransportOptionsAvaliable" value="SmallCar">Small Car<br>
+					</div>
+					<!-- Large Car -->
+					<div class="mix OnePerson TwoPeople ThreePeople FourPeople FivePeople ThreeDays FourDays FiveDays SixDays SevenDays EightDays NineDays TenDays">
+						<input id="LargeCar" class="form-control check-box" type="checkbox" name="TransportOptionsAvaliable" value="LargeCar">Large Car<br>
+					</div>
+					<!-- Motor Home -->
+					<div class="mix TwoPeople ThreePeople FourPeople FivePeople SixPeople TwoDays ThreeDays FourDays FiveDays SixDays SevenDays EightDays NineDays TenDays ElevenDays TwelveDays ThirteenDays FourteenDays FifteenDays">
+						<input id="MotorHome" class="form-control check-box" type="checkbox" name="TransportOptionsAvaliable" value="MotorHome">Motor Home<br>
+					</div>
+					<span class="input-errors"></span>
+				</div>
+				<!-- Transport Costs Heading -->
+				<div class="FormGroup">
+					<h1 class="font-family">Transport Costs</h1>
+				</div>
+				<!-- Vehicle Price -->
+				<div class="FormGroup">
+					<label for="VehiclePrice" class="font-family">Vehicle Price</label>
+					<input id="VehiclePrice" class="form-control prices" type="number" name="VehiclePrice">
+					<span class="input-errors"></span>
+				</div>	
+				<!-- Cost of Fuel -->
+				<div class="FormGroup">
+					<label for="CostOfFuel" class="font-family">Cost of Fuel for the trip</label>
+					<input  id="CostOfFuel" class="form-control prices" type="number" name="CostOfFuel">
+					<span class="input-errors"></span>
+				</div>
+				<!-- Total -->
+				<div class="FormGroup">
+					<label for="Total" class="font-family">Total:</label>
+					<input  id="Total" class="form-control prices" type="number" name="Total">
+					<span class="input-errors"></span>
+				</div>
+				<!-- Book your Holiday -->
+				<div class="FormGroup">
+					<h1 class="font-family">Book your Holiday</h1>
+				</div>
+				<!-- First Name -->
+				<div class="FormGroup">
+					<label for="FirstName" class="font-family">First Name</label>
+					<input  id="FirstName" class="form-control italic float-right" type="text" name="FirstName" placeholder="firstname" style="font-family:'PT Sans', sans-serif;">
+					<span class="input-errors"></span>
+				</div>
+				<!-- Last Name -->
+				<div class="FormGroup">
+					<label for="LastName" class="font-family">Last Name</label>
+					<input  id="LastName" class="form-control italic float-right"type="text" name="LastName" placeholder="lastname" style="font-family:'PT Sans', sans-serif;">
+					<span class="input-errors"></span>
+				</div>
+				<!--  Email -->
+				<div class="FormGroup">
+					<label for="Email" class="font-family">Email</label>
+					<input  id="Email" class="form-control italic float-right" type="email" name="Email" placeholder="example@email.com" style="font-family:'PT Sans', sans-serif;">
+					<span class="input-errors"></span>
+				</div>
+				<!-- Confirm Email -->
+				<div class="FormGroup">
+					<label for="ConfirmEmail" class="font-family">Confirm Email</label>
+					<input  id="ConfirmEmail" class="form-control italic float-right" type="email" name="ConfirmEmail" placeholder="example@email.com" style="font-family:'PT Sans', sans-serif;">
+					<span class="input-errors"></span>
+				</div>
+				<!-- Continue to Payment Button -->
+				<div class="FormGroup">
+					<button id="ContinueToPayment" class="button" type="submit">Continue to Payment</button>
+				</div>
+			</form>
+		</div>
+	</div>
+		
+	<!-- Link to Google Maps -->
+	<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlZ4re8yb4LLNB9m2VgcCpuhx347pTi74&callback=initMap">
+    </script>
+	<!-- Link to jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- Link to jQuery UI -->
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"><script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!-- Link to My Google Maps Javascript Document -->
+	<script type="text/javascript" src="js/google-map.js"></script>
+	<!-- Link to My Google Maps Directions -->
+    <script type="text/javascript" src="js/directions.js"></script>
+    <!-- Link to Mix it Up -->
+    <script type="text/javascript" src="js/mixitup.js"></script>
+    <!-- Link to Mix it up script -->
+    <script type="text/javascript" src="js/mix-it-up-script.js"></script>
+	<!-- Link to Form Validation Functions -->
+	<script type="text/javascript" src="js/form-validation.js"></script>
+	<!-- Link to Transport Options -->
+	<script type="text/javascript" src="js/transport-options.js"></script>
+	<!-- API Key -->
+	<!-- AIzaSyDlZ4re8yb4LLNB9m2VgcCpuhx347pTi74 -->
+</body>
+</html>
