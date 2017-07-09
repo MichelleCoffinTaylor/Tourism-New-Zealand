@@ -49,47 +49,35 @@
 						</select>
 						<span class="input-errors"></span>
 					</div>
-					<!-- Number of days Traveling -->
-					<div class="FormGroup">
-						<label for="NumberOfDays" id="NumberOfDays" class="font-family">Number of days traveling</label>
-						<select id="DaysTraveling" class="control" name="number">
-							<option value=".OneDay" id="OneDay">1</option>
-							<option value=".TwoDays" id="TwoDays">2</option>
-							<option value=".ThreeDays" id="ThreeDays">3</option>
-							<option value=".FourDays" id="FourDays">4</option>
-							<option value=".FiveDays" id="FiveDays">5</option>
-							<option value=".SixDays" id="SixDays">6</option>
-							<option value=".SevenDays" id="SevenDays">7</option>
-							<option value=".EightDays" id="EightDays">8</option>
-							<option value=".Ninedays" id="NineDays">9</option>
-							<option value=".TenDays" id="TenDays">10</option>
-							<option value=".ElevenDays" id="ElevenDays">11</option>
-							<option value=".TwelveDays" id="TwelveDays">12</option>
-							<option value=".ThirteenDays" id="ThirteenDays">13</option>
-							<option value=".FourteenDays" id="FourteenDays">14</option>
-							<option value=".FifteenDays" id="FifteenDays">15</option>
-						</select>
-						<span class="input-errors"></span>
-					</div>
-				</div>
-				<!-- Transport Options Avaliable -->
-				<div id="TransportOptions" class="FormGroup">
+					<!-- Transport Options Avaliable -->
+					<div id="TransportOptions" class="FormGroup">
 					<label for="TransportOptionsAvaliable" class="font-family">Transport Options Avaliable</label><br>
 					<!-- Motor Bike -->
-					<div class="mix OnePerson OneDay TwoDays Threedays FourDays FiveDays">
+					<div class="mix OnePerson">
 						<input id="MotorBike" class="form-control check-box" type="checkbox" name="TransportOptionsAvaliable" value="Motorbike">Motorbike<br>
 					</div>
 					<!-- Small Car -->
-					<div class="mix OnePerson TwoPeople OneDay TwoDays ThreeDays FourDays FiveDays SixDays SevenDays EightDays NineDays TenDays">
+					<div class="mix OnePerson TwoPeople">
 						<input id="SmallCar" class="form-control check-box" type="checkbox" name="TransportOptionsAvaliable" value="SmallCar">Small Car<br>
 					</div>
 					<!-- Large Car -->
-					<div class="mix OnePerson TwoPeople ThreePeople FourPeople FivePeople ThreeDays FourDays FiveDays SixDays SevenDays EightDays NineDays TenDays">
+					<div class="mix OnePerson TwoPeople ThreePeople FourPeople FivePeople">
 						<input id="LargeCar" class="form-control check-box" type="checkbox" name="TransportOptionsAvaliable" value="LargeCar">Large Car<br>
 					</div>
 					<!-- Motor Home -->
-					<div class="mix TwoPeople ThreePeople FourPeople FivePeople SixPeople TwoDays ThreeDays FourDays FiveDays SixDays SevenDays EightDays NineDays TenDays ElevenDays TwelveDays ThirteenDays FourteenDays FifteenDays">
+					<div class="mix TwoPeople ThreePeople FourPeople FivePeople SixPeople">
 						<input id="MotorHome" class="form-control check-box" type="checkbox" name="TransportOptionsAvaliable" value="MotorHome">Motor Home<br>
+					</div>
+					<span class="input-errors"></span>
+				</div>
+				</div>
+				<!-- Number of days Traveling -->
+				<div class="FormGroup">
+					<label for="NumberOfDays" class="font-family">Number of days traveling</label><br>
+					<div id="TravelOptionsInput">
+						<div id="minus" class="days-input"><p>-</p></div>
+						<input name="NumberOfDays" type="number" id="NumberOfDays" value="1" min="1" max="15">
+						<div id="plus" class="days-input"><p>+</p></div>
 					</div>
 					<span class="input-errors"></span>
 				</div>
@@ -157,20 +145,10 @@
     </script>
 	<!-- Link to jQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<!-- Link to jQuery UI -->
-	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"><script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <!-- Link to My Google Maps Javascript Document -->
-	<script type="text/javascript" src="js/google-map.js"></script>
-	<!-- Link to My Google Maps Directions -->
-    <script type="text/javascript" src="js/directions.js"></script>
     <!-- Link to Mix it Up -->
     <script type="text/javascript" src="js/mixitup.js"></script>
-    <!-- Link to Mix it up script -->
-    <script type="text/javascript" src="js/mix-it-up-script.js"></script>
-	<!-- Link to Form Validation Functions -->
-	<script type="text/javascript" src="js/form-validation.js"></script>
-	<!-- Link to Transport Options -->
-	<script type="text/javascript" src="js/transport-options.js"></script>
+	<!-- Link to My Javascript File -->
+	<script type="text/javascript" src="js/script.js"></script>
 	<!-- API Key -->
 	<!-- AIzaSyDlZ4re8yb4LLNB9m2VgcCpuhx347pTi74 -->
 </body>

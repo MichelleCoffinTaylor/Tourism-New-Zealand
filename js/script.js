@@ -1,5 +1,59 @@
-//	Form Validation Functions
+function initMap() {
 
+	var directionsService = new google.maps.DirectionsService;
+	var directionsDisplay = new google.maps.DirectionsRenderer;
+	var map = new google.maps.Map(document.getElementById('map'), {
+			
+			center:{
+			//  This is where the map will be positioned when loaded
+			lat: -41.3508692,
+			lng: 174.6383904
+			},
+		//  This is how far the map will be zoomed in
+		zoom: 8,
+		//  Enabling the user to drag around the map
+		draggable: true,
+		//  Disabling the double click zoom (NOT NEEDED FOR MOBILE)
+		disableDoubleClickZoom: true,
+		//  Disabling the use of a scroll wheel (NOT NEEDED FOR MOBILE)
+		scrollwheel: false,
+		//  Disabling toggling between the different map types
+		//  eg. Map and satellite
+		mapTypeControl: false,
+		//  Disabling the ability to open the map fullscreen
+		fullscreenControl: false,
+			//  Changing the position of the zoom control buttons
+			zoomControl: true,
+				zoomControlOptions: {
+				position: google.maps.ControlPosition.TOP_LEFT
+			},
+		});
+//	Directions (Starting Point to End Point)
+directionsDisplay.setMap(map);
+
+	var onChangeHandler = function() {
+	calculateAndDisplayRoute(directionsService, directionsDisplay);
+	};
+	document.getElementById('start').addEventListener('change', onChangeHandler);
+	document.getElementById('end').addEventListener('change', onChangeHandler);
+	}
+
+function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+	directionsService.route({
+	origin: document.getElementById('start').value,
+	destination: document.getElementById('end').value,
+	travelMode: 'DRIVING'
+	}, function(response, status) {
+		if (status === 'OK') {
+			directionsDisplay.setDirections(response);
+		} else {
+			//	Fix this (Some how remove)
+			('Directions request failed due to no end point' + status);
+		}
+	});
+}
+
+//	Form Validation
 $(document).ready(function(){
 
 	//	By default all of the input fields won't be valid as they would be empty
@@ -250,19 +304,87 @@ function required(element){
 	}
 }
 
-function minLen(element, value){
-	if(element.val().length < value){
-		element.parent().find('span.input-errors').text('This field must be more than ' + value);
-		return true;
-	} else {
-		element.parent().find('span.input-errors').empty();
-		return false;
+//	Mix it Up
+
+$(function(){
+		var $PeopleTraveling = $('#PeopleTraveling'),
+			$DaysTraveling = $('#DaysTraveling'),
+			$TransportOptions = $('#TransportOptions');
+		  
+		$TransportOptions.mixItUp();
+		  
+		$PeopleTraveling.on('change', function(){
+			$TransportOptions.mixItUp('filter', this.value);
+		});
+		  
+		$DaysTraveling.on('change', function(){
+			$TransportOptions.mixItUp('filter', this.value);
+		});
+	});
+
+//	Only having one check box checked at a time
+
+	// the selector will match all input controls of type :checkbox
+	// and attach a click event handler 
+$("input:checkbox").on('click', function() {
+  // in the handler, 'this' refers to the box clicked on
+  var $box = $(this);
+  if ($box.is(":checked")) {
+    // the name of the box is retrieved using the .attr() method
+    // as it is assumed and expected to be immutable
+    var group = "input:checkbox[name='" + $box.attr("name") + "']";
+    // the checked state of the group/box on the other hand will change
+    // and the current value is retrieved using .prop() method
+    $(group).prop("checked", false);
+    $box.prop("checked", true);
+  } else {
+    $box.prop("checked", false);
+  }
+});
+
+//	Number of People Traveling (Plus and Minus)
+
+//	Variables
+var increase = $("#plus");
+var decrease = $("#minus");
+var inputValue = $("#NumberOfDays")[0].value;
+var NumberOfDays = $("#NumberOfDays")[0];
+//	Max
+var max = NumberOfDays.max;
+//	Min
+var min = NumberOfDays.min;
+
+//	Plus
+increase.click(function(){
+	inputValue = Number(inputValue);
+	if(inputValue < max){
+		inputValue += 1;
+		NumberOfDays.value = "";
+		NumberOfDays.value = inputValue;
+		return;
 	}
-}
+});
 
+//	Minus
+decrease.click(function(){
+	if(inputValue > min){
+		inputValue -= 1;
+		NumberOfDays.value = "";
+		NumberOfDays.value = inputValue;
+		return;
+	}
+});
 
+//	Transport
 
+//	Petrol Price as of Friday 30th June - $1.859/L
+//	Motorbike 1 person – $109/day - min 1 day, max 5 days, 3.7L/100km
+//	Small car 1-2 people – $129/day - min 1 day, max 10 days, 8.5L/100km
+//	Large car 1-5 people – $144/day - min 3 days, max 10 days, 9.7L/100km
+//	Motor home 2-6 people – $200/day - min 2 days, max 15 days, 17L/100km
 
+//	Put all Vehicles into an array and give them a min and a max
+//	for how many days your can be traveling in them for
 
 
 

@@ -38,6 +38,9 @@ header {
 	margin: 0 auto;
 	background-color: #333333;
 }
+.Headings {
+	padding-bottom: 15px;
+}
 .font-family {
 	font-family: arial;
 	font-weight: bold;
@@ -77,16 +80,43 @@ span{
 	padding: 0.5em;
 	color: white;
 	background-color: #F04E23;
-	border : solid 1px #C8C8C8;
+	border: solid 1px #C8C8C8;
 	border-radius: 5px;
 }
 select {
 	width: 80px;
 	height: 27px;
 	float: right;
-	border : solid 1px #C8C8C8;
+	border: solid 1px #C8C8C8;
 	border-radius: 5px;
 }
 .prices {
 	width: 50px;
 }
+#NumberOfDays{
+	float:left;
+	width:50%;
+	height:auto;
+	position:relative;
+}
+.days-input{
+	float: left;
+	width: 5%;
+	height: auto;
+	position: relative;
+	background-color: #F04E23;
+	border: solid 1px #C8C8C8;
+	border-radius: 5px;
+	padding: 5px;
+}
+p {
+	width: 14px;
+	height: 14px;
+	margin: 1px;
+	text-align: center;
+	color: white;
+}
+
+	
+	
+	
