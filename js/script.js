@@ -31,12 +31,12 @@ function initMap() {
 //	Directions (Starting Point to End Point)
 directionsDisplay.setMap(map);
 
-	var onChangeHandler = function() {
-	calculateAndDisplayRoute(directionsService, directionsDisplay);
-	};
-	document.getElementById('start').addEventListener('change', onChangeHandler);
-	document.getElementById('end').addEventListener('change', onChangeHandler);
-	}
+	// var onChangeHandler = function() {
+	// calculateAndDisplayRoute(directionsService, directionsDisplay);
+	// };
+	// document.getElementById('start').addEventListener('change', onChangeHandler);
+	// document.getElementById('end').addEventListener('change', onChangeHandler);
+}
 
 function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 	directionsService.route({
@@ -316,10 +316,6 @@ $(function(){
 		$PeopleTraveling.on('change', function(){
 			$TransportOptions.mixItUp('filter', this.value);
 		});
-		  
-		$DaysTraveling.on('change', function(){
-			$TransportOptions.mixItUp('filter', this.value);
-		});
 	});
 
 //	Only having one check box checked at a time
@@ -342,7 +338,7 @@ $("input:checkbox").on('click', function() {
   }
 });
 
-//	Number of People Traveling (Plus and Minus)
+//	Number of People Traveling (Plus and Minus) - OVERALL MIN AND MAX
 
 //	Variables
 var increase = $("#plus");
@@ -375,9 +371,14 @@ decrease.click(function(){
 	}
 });
 
-//	Transport
+//	Min and Max days for each vehicle
+
+
+
+// Transport
 
 //	Petrol Price as of Friday 30th June - $1.859/L
+
 //	Motorbike 1 person – $109/day - min 1 day, max 5 days, 3.7L/100km
 //	Small car 1-2 people – $129/day - min 1 day, max 10 days, 8.5L/100km
 //	Large car 1-5 people – $144/day - min 3 days, max 10 days, 9.7L/100km
@@ -386,9 +387,81 @@ decrease.click(function(){
 //	Put all Vehicles into an array and give them a min and a max
 //	for how many days your can be traveling in them for
 
+var CostOfFuel = $("1.859");
+var Vehicles = [
+	{
+		//	Vehicle
+		Vehicle : "MotorBike",
+		//	Price of vehicle per day
+		PricePerDay : "$109",
+		//	Number of Days
+		MinNumberOfDays : "1",
+		MaxNumberOfDays : "5",
+		//	Cost of Fuel
+		CostOfFuel : "3.7L"
+	},
+	{
+		//	Vehicle
+		Vehicle : "SmallCar",
+		//	Price of vehicle per day
+		PricePerDay : "$129",
+		//	Number of Days
+		MinNumberOfDays : "1",
+		MaxNumberOfDays : "10",
+		//	Cost of Fuel
+		AmountOfFuel : "8.5L"
+	},
+	{
+		//	Vehicle
+		Vehicle : "LargeCar",
+		//	Price of vehicle per day
+		PricePerDay : "$144",
+		//	Number of Days
+		MinNumberOfDays : "1",
+		MaxNumberOfDays : "10",
+		//	Cost of Fuel
+		CostOfFuel : "9.7L"
+	},
+	{
+		//	Vehicle
+		Vehicle : "MotorHome",
+		//	Price of vehicle per day
+		PricePerDay : "$200",
+		//	Number of Days
+		MinNumberOfDays : "2",
+		MaxNumberOfDays : "15",
+		//	Cost of Fuel
+		CostOfFuel : "17L"
+	}
+];
+
+//	Motorbike
+
+$(function(){
+	var MotorbikeMin = $(min)[0];
+	var MotorbikeMax = $(max)[0];
+	var SmallCarMin = $("MinNumberOfDays")[0];
+	var SmallCarMax = $("#MinNumberOfDays")[0];
+	var LargeCarCarMin = $("MinNumberOfDays")[0];
+	var LargeCarMax = $("#MinNumberOfDays")[0];
+	var MotorHomeMin = $("MinNumberOfDays")[0];
+	var MotorHomeMax = $("#MinNumberOfDays")[0];
+		if("#NumberOfDays" === '#MotorBike'){
+			MinNumberOfDays = (1);
+			MaxNumberOfDays = (5);
+		} else if("#NumberOfDays" === '#SmallCar'){
+			MinNumberOfDays = (1);
+			MaxNumberOfDays = (10);
+		} else if("#NumberOfDays" === '#LargeCar'){
+			MinNumberOfDays = (1);
+			MaxNumberOfDays = (10);
+		} else if("#NumberOfDays" === '#MotorHome'){
+			MinNumberOfDays = (2);
+			MaxNumberOfDays = (15);
+		}
 
 
-
+});
 
 
 

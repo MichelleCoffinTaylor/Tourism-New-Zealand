@@ -8,6 +8,8 @@
 	<link rel="icon" href="imgs/logo.png">
 	<!-- Style Sheet -->
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<!-- Link to Font Awesome -->
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 	<!-- Google Fonts PT Sans -->
 	<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
 </head>
@@ -40,6 +42,7 @@
 					<div class="FormGroup">
 						<label for="NumberOfPeople" id="NumberOfPeople" class="font-family">Number of people traveling</label>
 						<select id="PeopleTraveling" class="control" name="number">
+							<option value=".NoPeople" id="0">Select</option>
 							<option value=".OnePerson" id="1">1</option>
 							<option value=".TwoPeople" id="2">2</option>
 							<option value=".ThreePeople" id="3">3</option>
@@ -53,19 +56,19 @@
 					<div id="TransportOptions" class="FormGroup">
 					<label for="TransportOptionsAvaliable" class="font-family">Transport Options Avaliable</label><br>
 					<!-- Motor Bike -->
-					<div class="mix OnePerson">
+					<div class="mix OnePerson Vehicles">
 						<input id="MotorBike" class="form-control check-box" type="checkbox" name="TransportOptionsAvaliable" value="Motorbike">Motorbike<br>
 					</div>
 					<!-- Small Car -->
-					<div class="mix OnePerson TwoPeople">
+					<div class="mix OnePerson TwoPeople Vehicles">
 						<input id="SmallCar" class="form-control check-box" type="checkbox" name="TransportOptionsAvaliable" value="SmallCar">Small Car<br>
 					</div>
 					<!-- Large Car -->
-					<div class="mix OnePerson TwoPeople ThreePeople FourPeople FivePeople">
+					<div class="mix OnePerson TwoPeople ThreePeople FourPeople FivePeople Vehicles">
 						<input id="LargeCar" class="form-control check-box" type="checkbox" name="TransportOptionsAvaliable" value="LargeCar">Large Car<br>
 					</div>
 					<!-- Motor Home -->
-					<div class="mix TwoPeople ThreePeople FourPeople FivePeople SixPeople">
+					<div class="mix TwoPeople ThreePeople FourPeople FivePeople SixPeople Vehicles">
 						<input id="MotorHome" class="form-control check-box" type="checkbox" name="TransportOptionsAvaliable" value="MotorHome">Motor Home<br>
 					</div>
 					<span class="input-errors"></span>
@@ -75,9 +78,9 @@
 				<div class="FormGroup">
 					<label for="NumberOfDays" class="font-family">Number of days traveling</label><br>
 					<div id="TravelOptionsInput">
-						<div id="minus" class="days-input"><p>-</p></div>
+						<div id="minus" class="days-input"><p><i class="fa fa-minus" aria-hidden="true"></i></p></div>
 						<input name="NumberOfDays" type="number" id="NumberOfDays" value="1" min="1" max="15">
-						<div id="plus" class="days-input"><p>+</p></div>
+						<div id="plus" class="days-input"><p><i class="fa fa-plus" aria-hidden="true"></i></p></div>
 					</div>
 					<span class="input-errors"></span>
 				</div>
@@ -87,20 +90,20 @@
 				</div>
 				<!-- Vehicle Price -->
 				<div class="FormGroup">
-					<label for="VehiclePrice" class="font-family">Vehicle Price</label>
+					<label for="VehiclePrice" class="font-family">Vehicle Price Per Day</label>
 					<input id="VehiclePrice" class="form-control prices" type="number" name="VehiclePrice">
-					<span class="input-errors"></span>
-				</div>	
-				<!-- Cost of Fuel -->
-				<div class="FormGroup">
-					<label for="CostOfFuel" class="font-family">Cost of Fuel for the trip</label>
-					<input  id="CostOfFuel" class="form-control prices" type="number" name="CostOfFuel">
 					<span class="input-errors"></span>
 				</div>
 				<!-- Total -->
 				<div class="FormGroup">
-					<label for="Total" class="font-family">Total:</label>
+					<label for="Total" class="font-family">Total Vehicle Price</label>
 					<input  id="Total" class="form-control prices" type="number" name="Total">
+					<span class="input-errors"></span>
+				</div>
+				<!-- Cost of Fuel -->
+				<div class="FormGroup">
+					<label for="CostOfFuel" class="font-family">Cost of Fuel for the trip</label>
+					<input  id="CostOfFuel" class="form-control prices" type="number" name="CostOfFuel">
 					<span class="input-errors"></span>
 				</div>
 				<!-- Book your Holiday -->
@@ -138,17 +141,14 @@
 			</form>
 		</div>
 	</div>
-		
-	<!-- Link to Google Maps -->
-	<script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlZ4re8yb4LLNB9m2VgcCpuhx347pTi74&callback=initMap">
-    </script>
 	<!-- Link to jQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Link to Mix it Up -->
     <script type="text/javascript" src="js/mixitup.js"></script>
 	<!-- Link to My Javascript File -->
 	<script type="text/javascript" src="js/script.js"></script>
+	<!-- Link to Google Maps -->
+	 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlZ4re8yb4LLNB9m2VgcCpuhx347pTi74&callback=initMap" async defer></script>
 	<!-- API Key -->
 	<!-- AIzaSyDlZ4re8yb4LLNB9m2VgcCpuhx347pTi74 -->
 </body>

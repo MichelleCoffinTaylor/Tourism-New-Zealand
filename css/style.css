@@ -41,6 +41,10 @@ header {
 .Headings {
 	padding-bottom: 15px;
 }
+.Vehicles {
+	font-family: arial;
+	color: #333333;
+}
 .font-family {
 	font-family: arial;
 	font-weight: bold;
